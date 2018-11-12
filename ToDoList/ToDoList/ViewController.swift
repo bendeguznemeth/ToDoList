@@ -9,7 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.dataSource = self
+        
+        titleLabel.text = "Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők"
+        
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -21,18 +33,5 @@ class ViewController: UIViewController, UITableViewDataSource {
             return UITableViewCell.init()
         }
     }
-    
-
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        titleLabel.text = "Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők"
-        
-    }
-
 
 }
-
