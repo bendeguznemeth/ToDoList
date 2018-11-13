@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    private var dataSource: [ToDo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,18 +22,36 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         titleLabel.text = "Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők"
         
+        makeData()
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ToDoTableViewCell {
+            let todo = dataSource[indexPath.row]
+            cell.showCellData(todo: todo)
             return cell
         } else {
             return UITableViewCell.init()
         }
     }
-
+    
+    private func makeData() {
+        let firstData = ToDo.init(name: "Grocery", priority: .normal)
+        let secondData = ToDo.init(name: "Szemesz", priority: .low)
+        let thirdData = ToDo.init(name: "Egyetem", priority: .high)
+        
+        dataSource = [firstData, secondData, thirdData]
+    }
+    
+    @IBAction func addToDo(_ sender: UIBarButtonItem) {
+        let staticToDo = ToDo.init(name: "attrecto", priority: .high)
+        dataSource.append(staticToDo)
+        tableView.reloadData()
+    }
+    
 }
