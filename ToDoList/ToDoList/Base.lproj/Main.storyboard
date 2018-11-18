@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Napi teendők-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,14 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NS7-yt-z20">
-                                <rect key="frame" x="30" y="94" width="315" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HOl-9P-Ypb">
-                                <rect key="frame" x="0.0" y="119.5" width="375" height="547.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="90" id="3Lq-xM-ScK" customClass="ToDoTableViewCell" customModule="ToDoList" customModuleProvider="target">
@@ -69,17 +63,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NS7-yt-z20" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Fpz-c8-4Ud"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HOl-9P-Ypb" secondAttribute="trailing" id="IFo-dM-jU9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HOl-9P-Ypb" secondAttribute="bottom" id="JZy-Sc-EqW"/>
-                            <constraint firstItem="HOl-9P-Ypb" firstAttribute="top" secondItem="NS7-yt-z20" secondAttribute="bottom" constant="5" id="X6G-Ki-t03"/>
-                            <constraint firstItem="HOl-9P-Ypb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gIQ-YP-pMn"/>
-                            <constraint firstItem="NS7-yt-z20" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="jCP-1X-KDR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NS7-yt-z20" secondAttribute="trailing" constant="30" id="yZe-Jn-Xyk"/>
+                            <constraint firstItem="HOl-9P-Ypb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hoo-2q-hpy"/>
+                            <constraint firstItem="HOl-9P-Ypb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O4Y-q3-AKH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HOl-9P-Ypb" secondAttribute="bottom" id="oVU-mS-HX8"/>
+                            <constraint firstItem="HOl-9P-Ypb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="skJ-hd-iAo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9tq-1v-6EC">
+                    <navigationItem key="navigationItem" title="Napi teendők" id="9tq-1v-6EC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qrc-I4-Z05">
                             <connections>
                                 <action selector="addToDo:" destination="BYZ-38-t0r" id="QZ9-Nc-3qm"/>
@@ -88,7 +79,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="HOl-9P-Ypb" id="W5b-wA-tpN"/>
-                        <outlet property="titleLabel" destination="NS7-yt-z20" id="2Mj-Cr-D6r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

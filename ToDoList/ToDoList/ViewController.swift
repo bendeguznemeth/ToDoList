@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
 
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     private var dataSource: [ToDo] = []
@@ -19,8 +18,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        
-        titleLabel.text = "Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők, Napi teendők"
         
         makeData()
         
