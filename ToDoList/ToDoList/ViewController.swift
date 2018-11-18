@@ -45,10 +45,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         dataSource = [firstData, secondData, thirdData]
     }
     
-    @IBAction func addToDo(_ sender: UIBarButtonItem) {
-        let staticToDo = ToDo.init(name: "attrecto", priority: .high)
-        dataSource.append(staticToDo)
-        tableView.reloadData()
-    }
+//    func addToDo(_ sender: UIBarButtonItem) {
+//        let staticToDo = ToDo.init(name: "attrecto", priority: .high)
+//        dataSource.append(staticToDo)
+//        tableView.reloadData()
+//    }
     
 }

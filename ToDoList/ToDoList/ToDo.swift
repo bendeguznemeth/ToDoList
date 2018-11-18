@@ -10,12 +10,14 @@ struct ToDo {
 
     let name: String
     
-    enum Priority: String {
-        case low
-        case normal
-        case high
-    }
-    
     let priority: Priority
     
+}
+
+enum Priority: String {
+    case low
+    case normal
+    case high
+    
+    static let allValues = [high, normal, low]
 }
