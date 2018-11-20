@@ -12,6 +12,9 @@ class ToDoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var todoImageView: UIImageView!
     @IBOutlet weak var todoLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +30,14 @@ class ToDoTableViewCell: UITableViewCell {
     func showCellData(todo: ToDo) {
         todoLabel.text = todo.name
         todoImageView.image = UIImage.init(named: todo.priority.rawValue)
+        dateLabel.text = stringFromDate(todo.date)
+        descriptionLabel.text = todo.description
     }
     
+    private func stringFromDate(_ date: Date) -> String {
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
 
 }

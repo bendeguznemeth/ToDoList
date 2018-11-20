@@ -15,7 +15,7 @@ class NewToDoViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var priorityPickerView: UIPickerView!
     
-    var selectedPriority: Priority = .normal
+//    var selectedPriority: Priority = .normal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,9 @@ class NewToDoViewController: UIViewController {
         descriptionTextView.layer.borderColor = borderGray.cgColor
         descriptionTextView.layer.borderWidth = 0.5
         descriptionTextView.layer.cornerRadius = 5
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     /*
@@ -40,7 +43,34 @@ class NewToDoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        descriptionTextView.resignFirstResponder()
+    }
+    
+    @IBAction func onSaveClick(_ sender: UIBarButtonItem) {
+        save()
+        close()
+    }
+    
+    private func makeToDo() -> ToDo {
+        let name = titleTextField.text ?? ""
+        let description = descriptionTextView.text ?? ""
+        let date = datePicker.date
+        let priority = Priority.allValues[priorityPickerView.selectedRow(inComponent: 0)]
+        
+        return ToDo.init(name: name, description: description, date: date, priority: priority)
+    }
+    
+    private func save() {
+        let toDo = makeToDo()
+        ToDoManager.sharedInstance.addToDo(todo: toDo)
+    }
+    
+    private func close() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 
 extension NewToDoViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -57,9 +87,9 @@ extension NewToDoViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         return Priority.allValues[row].rawValue.capitalized
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedPriority = Priority.allValues[row]
-    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        selectedPriority = Priority.allValues[row]
+//    }
     
 }
 
