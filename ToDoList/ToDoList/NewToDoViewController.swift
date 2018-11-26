@@ -15,8 +15,6 @@ class NewToDoViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var priorityPickerView: UIPickerView!
     
-//    var selectedPriority: Priority = .normal
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,16 +31,6 @@ class NewToDoViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         descriptionTextView.resignFirstResponder()
@@ -64,7 +52,7 @@ class NewToDoViewController: UIViewController {
     
     private func save() {
         let toDo = makeToDo()
-        ToDoManager.sharedInstance.addToDo(todo: toDo)
+        ToDoManager.sharedInstance.addToDo(toDo)
     }
     
     private func close() {
@@ -86,10 +74,6 @@ extension NewToDoViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return Priority.allValues[row].rawValue.capitalized
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        selectedPriority = Priority.allValues[row]
-//    }
     
 }
 

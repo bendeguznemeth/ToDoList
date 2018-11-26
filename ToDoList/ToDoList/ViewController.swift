@@ -17,8 +17,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         tableView.dataSource = self
         
-//        makeData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,18 +38,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-//    private func makeData() {
-//        let firstData = ToDo.init(name: "Grocery", priority: .normal)
-//        let secondData = ToDo.init(name: "Szemesz", priority: .low)
-//        let thirdData = ToDo.init(name: "Egyetem", priority: .high)
-//
-//        dataSource = [firstData, secondData, thirdData]
-//    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
-//    func addToDo(_ sender: UIBarButtonItem) {
-//        let staticToDo = ToDo.init(name: "attrecto", priority: .high)
-//        dataSource.append(staticToDo)
-//        tableView.reloadData()
-//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            ToDoManager.sharedInstance.removeToDo(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
 }

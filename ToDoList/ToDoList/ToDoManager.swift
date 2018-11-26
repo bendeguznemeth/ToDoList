@@ -21,9 +21,14 @@ class ToDoManager: NSObject {
         loadToDos()
     }
     
-    func addToDo(todo: ToDo) {
+    func addToDo(_ todo: ToDo) {
         dataSource.append(todo)
         sortByPriority()
+        saveToDos()
+    }
+    
+    func removeToDo(at indexPath: Int) {
+        dataSource.remove(at: indexPath)
         saveToDos()
     }
     
