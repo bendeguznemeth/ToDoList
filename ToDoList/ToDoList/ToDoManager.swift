@@ -27,8 +27,15 @@ class ToDoManager: NSObject {
         saveToDos()
     }
     
-    func removeToDo(at indexPath: Int) {
-        dataSource.remove(at: indexPath)
+    func removeToDo(with name: String) {
+        var index = 0
+        for i in 0..<dataSource.count {
+            if dataSource[i].name == name {
+                index = i
+                break
+            }
+        }
+        dataSource.remove(at: index)
         saveToDos()
     }
     
